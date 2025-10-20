@@ -1,3 +1,5 @@
+import 'package:app_flutter_alcool_ou_gasolina/widgets/input_widget.dart';
+import 'package:app_flutter_alcool_ou_gasolina/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,16 +17,28 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final TextEditingController _controllerGasolina = TextEditingController();
+  final TextEditingController _controllerAlcool = TextEditingController();
+
+  HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
+      body: ListView(
+        children: <Widget>[
+          LogoWidget(),
+          InputWidget(label: "Gasolina", controller: _controllerGasolina),
+          InputWidget(label: "Álcool", controller: _controllerAlcool),
+        ],
+      ),
+    );
   }
 }
