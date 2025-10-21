@@ -1,3 +1,4 @@
+import 'package:app_flutter_alcool_ou_gasolina/widgets/text_button_widget.dart';
 import 'package:app_flutter_alcool_ou_gasolina/widgets/input_widget.dart';
 import 'package:app_flutter_alcool_ou_gasolina/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
@@ -35,8 +36,17 @@ class HomePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           LogoWidget(),
-          InputWidget(label: "Gasolina", controller: _controllerGasolina),
-          InputWidget(label: "Álcool", controller: _controllerAlcool),
+          InputWidget(label: "Gasolina: ", controller: _controllerGasolina),
+          InputWidget(label: "Álcool: ", controller: _controllerAlcool),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(40),
+            ),
+            margin: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+            padding: EdgeInsets.all(10),
+            child: TextButtonWidget(calcular: "CALCULAR"),
+          ),
         ],
       ),
     );
