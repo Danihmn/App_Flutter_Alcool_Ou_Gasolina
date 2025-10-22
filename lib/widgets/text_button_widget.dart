@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 
 class TextButtonWidget extends StatelessWidget {
   final String calcular;
+  final double fontSize;
+  final Color corLabel;
 
-  const TextButtonWidget({super.key, required this.calcular});
+  const TextButtonWidget({
+    super.key,
+    required this.calcular,
+    required this.fontSize,
+    required this.corLabel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +19,9 @@ class TextButtonWidget extends StatelessWidget {
       child: Text(
         calcular,
         style: TextStyle(
-          color: Colors.deepPurple,
+          color: corLabel,
           fontWeight: FontWeight.bold,
-          fontSize: 40,
+          fontSize: fontSize,
           fontFamily: "Big Shoulders Display",
         ),
       ),
