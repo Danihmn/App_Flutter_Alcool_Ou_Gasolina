@@ -24,7 +24,7 @@ class InputWidget extends StatelessWidget {
           ),
         ),
         SizedBox(width: 10),
-        Expanded(child: TextFormFieldWidget(controller: controller,)),
+        Expanded(child: TextFormFieldWidget(controller: controller)),
       ],
     );
   }

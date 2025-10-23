@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
 class TextButtonWidget extends StatelessWidget {
-  final String calcular;
+  final String calculate;
   final double fontSize;
-  final Color corLabel;
+  final Color labelColor;
+  final VoidCallback onPressed;
 
   const TextButtonWidget({
     super.key,
-    required this.calcular,
+    required this.calculate,
     required this.fontSize,
-    required this.corLabel,
+    required this.labelColor,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onPressed,
       child: Text(
-        calcular,
+        calculate,
         style: TextStyle(
-          color: corLabel,
+          color: labelColor,
           fontWeight: FontWeight.bold,
           fontSize: fontSize,
           fontFamily: "Big Shoulders Display",

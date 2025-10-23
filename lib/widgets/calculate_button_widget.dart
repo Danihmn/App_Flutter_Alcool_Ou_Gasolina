@@ -1,14 +1,14 @@
 import 'package:app_flutter_alcool_ou_gasolina/widgets/text_button_widget.dart';
 import 'package:flutter/material.dart';
 
-class ButtonCalculateWidget extends StatelessWidget {
+class CalculateButtonWidget extends StatelessWidget {
   final String label;
   final double fontLabelSize;
   final Color backgroundColor;
   final Color labelColor;
   final VoidCallback onPressed;
 
-  const ButtonCalculateWidget({
+  const CalculateButtonWidget({
     super.key,
     required this.label,
     required this.fontLabelSize,
