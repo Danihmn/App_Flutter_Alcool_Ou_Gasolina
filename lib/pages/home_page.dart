@@ -21,53 +21,59 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme
+          .of(context)
+          .primaryColor,
       body: AnimatedContainer(
         duration: const Duration(milliseconds: 1200),
-        color: Theme.of(context).primaryColor,
+        color: Theme
+            .of(context)
+            .primaryColor,
         child: ListView(
           children: <Widget>[
             const LogoWidget(),
             _completed
                 ? Container(
-                    margin: const EdgeInsets.all(30),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(25),
+              margin: const EdgeInsets.all(30),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.8),
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Column(
+                children: [
+                  const SizedBox(height: 30),
+                  Text(
+                    _resultText,
+                    style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: "Big Shoulders Display",
+                      color: Theme
+                          .of(context)
+                          .primaryColor,
                     ),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 30),
-                        Text(
-                          _resultText,
-                          style: TextStyle(
-                            fontSize: 40,
-                            fontFamily: "Big Shoulders Display",
-                            color: Theme.of(context).primaryColor,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                        const SizedBox(height: 5),
-                        LoadingButtonWidget(
-                          busy: false,
-                          invert: true,
-                          label: "CALCULAR NOVAMENTE",
-                          fontLabelSize: 20,
-                          onPressed: () {
-                            setState(() {
-                              _completed = false;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  )
-                : SubmitForm(
-                    gasolineController: _gasolineController,
-                    alcoholController: _alcoholController,
-                    busy: _busy,
-                    submitFunction: _calculate,
+                    textAlign: TextAlign.center,
                   ),
+                  const SizedBox(height: 5),
+                  LoadingButtonWidget(
+                    busy: false,
+                    invert: true,
+                    label: "CALCULAR NOVAMENTE",
+                    fontLabelSize: 20,
+                    onPressed: () {
+                      setState(() {
+                        _completed = false;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            )
+                : SubmitForm(
+              gasolineController: _gasolineController,
+              alcoholController: _alcoholController,
+              busy: _busy,
+              submitFunction: _calculate,
+            ),
           ],
         ),
       ),
@@ -77,10 +83,10 @@ class _HomePageState extends State<HomePage> {
   Future _calculate() async {
     double alcohol =
         double.parse(_alcoholController.text.replaceAll(RegExp(r'[,.]'), '')) /
-        100;
+            100;
     double gasoline =
         double.parse(_gasolineController.text.replaceAll(RegExp(r'[,.]'), '')) /
-        100;
+            100;
     double result = alcohol / gasoline;
 
     setState(() {
